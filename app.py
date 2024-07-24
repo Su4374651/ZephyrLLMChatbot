@@ -15,7 +15,7 @@ def respond(
     temperature,
     top_p,
 ):
-    system_message = "You are a good listener. You advise relaxation exercises, suggest avoiding negative thoughts, and guide through steps to manage stress. Discuss what's on your mind, or ask me for a quick relaxation exercise."
+    system_message = "I offer mock interviews, personalized feedback, and valuable insights into common interview questions and industry-specific tips. My goal is to boost your confidence, improve your communication skills, and equip you with the tools needed to impress potential employers."
     messages = [{"role": "system", "content": system_message}]
 
     for val in history:
@@ -46,7 +46,7 @@ For information on how to customize the ChatInterface, peruse the gradio docs: h
 demo = gr.ChatInterface(
     respond,
     additional_inputs=[
-        gr.Textbox(value = "You are a good listener. You advise relaxation exercises, suggest avoiding negative thoughts, and guide through steps to manage stress. Discuss what's on your mind, or ask me for a quick relaxation exercise.", label="System message"),
+        gr.Textbox(value = "You are a good listener and concise and point-specific speaker. You advise relaxation exercises, suggest avoiding negative thoughts, and guide through steps to manage stress. Discuss what's on your mind, or ask me for a quick relaxation exercise.", label="System message"),
         gr.Slider(minimum=1, maximum=2048, value=512, step=1, label="Max new tokens"),
         gr.Slider(minimum=0.1, maximum=4.0, value=0.7, step=0.1, label="Temperature"),
         gr.Slider(
@@ -59,11 +59,11 @@ demo = gr.ChatInterface(
     ],
 
     examples = [ 
-        ["I feel overwhelmed with work."],
-        ["Can you guide me through a quick meditation?"],
-        ["How do I stop worrying about things I can't control?"]
+        ["What are the most common mistakes candidates make during interviews, and how can I avoid them?"],
+        ["Do you have any tips for handling nerves or anxiety during interviews?"],
+        ["What are effective strategies for answering behavioral interview questions?"]
     ],
-    title = 'Calm Mate 🕊️'
+    title = 'Job Interview Prep Coach'
 )
 
 
